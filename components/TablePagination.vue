@@ -99,7 +99,7 @@
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
     #pagination-nav .pagination {
         margin: 0;
