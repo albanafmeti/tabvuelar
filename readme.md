@@ -3,7 +3,7 @@
 
 ## How To Use
 
-npm install @noisim/tabvuelar --save
+`npm install @noisim/tabvuelar --save`
 
 ## Documentation
 
