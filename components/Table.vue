@@ -144,7 +144,7 @@
             transformers: {
                 type: Object,
                 required: false,
-                'default': {}
+                'default': function () { return {} }
             },
             defaultFilter: {
                 type: Boolean,
