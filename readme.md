@@ -9,6 +9,8 @@ Just run on the CLI:
 
 `npm install @noisim/tabvuelar --save`
 
+Include [Font Awesome][http://fontawesome.io/] into the project so the icons will be shown correctly.
+
 The package will be installed, and will be part of the `node_modules` directory.
 
 Import the package:
