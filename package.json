@@ -1,0 +1,25 @@
+{
+  "name": "@noisim/tabvuelar",
+  "version": "1.0.0",
+  "description": "Table for Vue.js and Laravel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "table",
+    "vue",
+    "tabvuelar",
+    "laravel",
+    "noisim"
+  ],
+  "author": "Alban Afmeti <albanafmeti@gmail.com> (http://techalin.com)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17",
+    "fontawesome": "^4.7.2",
+    "vue": "^2.5.7",
+    "vue-events": "^3.1.0",
+    "vue-spinner": "^1.0.3"
+  }
+}
