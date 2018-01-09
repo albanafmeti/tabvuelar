@@ -1,4 +1,3 @@
-import 'fontawesome';
 import TableComponent from './components/Table.vue';
 
 const TabVueLar = {
