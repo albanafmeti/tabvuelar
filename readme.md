@@ -16,3 +16,12 @@ Import the package:
 ```js
 import TabVueLar from '@noisim/tabvuelar';
 ```
+
+Use it:
+
+```js
+import Vue from 'vue';
+import TabVueLar from '@noisim/tabvuelar';
+
+Vue.use(TabVueLar);
+```
