@@ -27,3 +27,9 @@ import TabVueLar from '@noisim/tabvuelar';
 
 Vue.use(TabVueLar);
 ```
+
+Here is an example project [Tabvuelar Example Project](https://github.com/albanafmeti/tabvuelar-example-proj)
+
+and here is an online demo [http://tabvuelar.techalin.com/](http://tabvuelar.techalin.com/)
+
+Have fun!
