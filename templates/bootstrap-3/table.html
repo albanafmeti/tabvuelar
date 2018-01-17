@@ -1,0 +1,78 @@
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <table-per-page :perPage="perPage" v-if="defaultPerPage"></table-per-page>
+            <slot name="__perPage"></slot>
+
+            <button v-if="defaultRefresh" class="table-refresh-btn btn btn-default" @click.prevent="onRefreshTable"
+                    title="Refresh Table">
+                Refresh
+            </button>
+
+            <table-filter v-if="defaultFilter"></table-filter>
+            <slot name="__filter"></slot>
+
+            <slot name="__toolbar"></slot>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table-responsive table-div">
+        <table :class="[tableClass]">
+            <thead>
+            <tr>
+                <table-th
+                        v-bind:field="field"
+                        v-bind:sortable="field.sortable"
+                        v-bind:key="field.name"
+                        v-for="field in fields"></table-th>
+            </tr>
+            </thead>
+            <tbody v-if="tableData">
+            <tr v-for="(item, index) in tableData.data">
+
+                <table-td
+                        :index="index"
+                        :item="item"
+                        :field="field"
+                        :key="field.name + index"
+                        :transformers="transformers"
+                        v-for="(field, index) in fields">
+                    <template slot="tr-actions" slot-scope="data">
+                        <slot name="__actions" :item="data.item"></slot>
+                    </template>
+
+                    <template slot="__slot" slot-scope="{item}" v-if="isSpecialField(field, '__slot')">
+                        <slot :name="field.slotName" :item="item"></slot>
+                    </template>
+
+                </table-td>
+
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- No Data Message -->
+        <p v-if="tableData && tableData.meta.total === 0" class="no-data-message" v-html="noDataMessage"></p>
+
+        <!-- Loading Spinner -->
+        <div class="loading-div" v-if="loadingSpinner">
+            <div class="pulse-loader">
+                <pulse-loader></pulse-loader>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row" v-if="tableData && tableData.meta.last_page > 1">
+        <div class="col-md-12">
+            <table-info :tableData="tableData" v-if="defaultInfo"></table-info>
+            <slot name="__info" :tableData="tableData"></slot>
+
+            <table-pagination
+                    :tableData="tableData"
+                    v-if="defaultPagination">
+            </table-pagination>
+            <slot name="__pagination" :tableData="tableData"></slot>
+        </div>
+    </div>
+</div>

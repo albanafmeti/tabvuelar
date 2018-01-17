@@ -17,5 +17,13 @@ export default {
             return field.name;
         }
         return field;
+    },
+
+    getTemplateDir(ui) {
+        if (ui === 'bootstrap-3') {
+            return 'bootstrap-3';
+        }
+
+        return 'bootstrap-3';
     }
 }

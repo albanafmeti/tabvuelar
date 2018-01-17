@@ -1,8 +1,17 @@
 import TableComponent from './components/Table.vue';
 
 const TabVueLar = {
-    install(Vue, options) {
-        Vue.component(TableComponent.name, TableComponent)
+    install(Vue, options = null) {
+
+        options = options ? options : {
+                ui: 'bootstrap-3'
+            };
+
+        Vue.prototype.$pluginOptions = {
+            ui: options.ui
+        };
+
+        Vue.component(TableComponent.name, TableComponent);
     }
 };
 
