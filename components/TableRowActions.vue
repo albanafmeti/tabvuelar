@@ -1,9 +1,5 @@
-<template>
-    <div class="table-row-actions">
-        <slot name="table-row-actions" :item="item"></slot>
-    </div>
-</template>
 <script>
+    import Helpers from '../helpers';
 
     export default {
         name: 'table-row-actions',
@@ -12,6 +8,10 @@
                 type: Object,
                 required: true
             }
+        },
+        created: function () {
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-row-actions.html');
         }
     }
 </script>

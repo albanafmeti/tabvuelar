@@ -1,13 +1,5 @@
-<template>
-    <div class="table-row-checkbox">
-        <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-            <input v-model="state" type="checkbox" class="custom-control-input" @change="stateChanged">
-            <span class="custom-control-indicator"></span>
-        </label>
-    </div>
-</template>
 <script>
-
+    import Helpers from '../helpers';
     import Env from '../env';
 
     export default {
@@ -24,6 +16,10 @@
             }
         },
         created: function () {
+
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-row-checkbox.html');
+
             let _this = this;
             this.$events.$on(Env.eventsPrefix + 'select-all-checkboxes', function () {
                 _this.state = true;

@@ -4,7 +4,7 @@ const TabVueLar = {
     install(Vue, options = null) {
 
         options = options ? options : {
-                ui: 'bootstrap-3'
+                ui: 'bootstrap'
             };
 
         Vue.prototype.$pluginOptions = {

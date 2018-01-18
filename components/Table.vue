@@ -59,7 +59,7 @@
             tableClass: {
                 type: String,
                 required: false,
-                'default': 'table table-striped table-hover'
+                'default': 'table-striped table-hover'
             },
             transformers: {
                 type: Object,
@@ -182,7 +182,8 @@
 
     .table-refresh-btn {
         float: left;
-        margin: 0 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
     }
 
     .table-div {

@@ -1,22 +1,3 @@
-<template>
-    <th scope="col" class="table-th" @click="sortField">
-
-        <span v-if="specialField(field) == '__checkbox'">
-            <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                <input v-model="state" type="checkbox" class="custom-control-input" @change="stateChanged">
-                <span class="custom-control-indicator"></span>
-            </label>
-        </span>
-        <span v-else>{{ field.title }}</span>
-
-        <span v-if="sortable  && !isSpecialField(field.name)"
-              :class="{ 'sort-disabled': !(dataSorted && dataSortType == 'asc') }"
-              class="sort sort-up fa fa-caret-up"></span>
-        <span v-if="sortable  && !isSpecialField(field.name)"
-              :class="{ 'sort-disabled': !(dataSorted && dataSortType == 'desc') }"
-              class="sort sort-bottom fa fa-caret-down"></span>
-    </th>
-</template>
 <script>
     import Helpers from '../helpers';
     import Env from '../env';
@@ -43,6 +24,10 @@
                 required: false,
                 'default': 'asc'
             },
+        },
+        created: function () {
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-head-cell.html');
         },
         data() {
             return {

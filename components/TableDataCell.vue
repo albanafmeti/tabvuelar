@@ -1,29 +1,3 @@
-<template>
-    <td class="table-td">
-
-        <table-row-actions v-if="isSpecialField(field, '__actions')" :item="item">
-
-            <template slot="table-row-actions" slot-scope="data">
-                <slot name="tr-actions" :item="data.item"></slot>
-            </template>
-
-        </table-row-actions>
-
-        <table-row-checkbox v-if="isSpecialField(field, '__checkbox')" :item="item">
-        </table-row-checkbox>
-
-        <p v-if="isSpecialField(field, '__slot')">
-            <slot name="__slot" :item="item"></slot>
-        </p>
-
-        <span v-if="isSpecialField(field, '__sequence')">{{ index + 1 }}</span>
-        <span v-if="hasCallback(field)" v-html="callCallback(field, item)"></span>
-        <span v-else v-html="item[field.name]"></span>
-
-    </td>
-
-
-</template>
 <script>
     import TableRowActions from './TableRowActions.vue';
     import TableRowCheckbox from './TableRowCheckbox.vue';
@@ -55,6 +29,10 @@
                 required: false,
                 'default': {}
             },
+        },
+        created: function () {
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-data-cell.html');
         },
         data() {
             return {}

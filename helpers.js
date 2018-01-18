@@ -20,10 +20,10 @@ export default {
     },
 
     getTemplateDir(ui) {
-        if (ui === 'bootstrap-3') {
-            return 'bootstrap-3';
+        if (ui === 'bootstrap') {
+            return 'bootstrap';
         }
 
-        return 'bootstrap-3';
+        return 'bootstrap';
     }
 }

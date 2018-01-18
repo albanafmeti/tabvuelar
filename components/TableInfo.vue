@@ -1,9 +1,5 @@
-<template>
-    <div id="table-info">
-        <span class="table-info-txt">Showing {{ tableData.meta.from }} to {{ tableData.meta.to }} of {{ tableData.meta.total }} entries</span>
-    </div>
-</template>
 <script>
+    import Helpers from '../helpers';
 
     export default {
         name: 'table-pagination',
@@ -12,6 +8,10 @@
                 type: Object,
                 required: true
             }
+        },
+        created: function () {
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-info.html');
         }
     }
 </script>

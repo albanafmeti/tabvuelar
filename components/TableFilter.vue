@@ -1,20 +1,5 @@
-<template>
-    <div class="table-filter">
-        <form class="form-inline mb-20 pull-right">
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" v-model="filterText" class="form-control" @keyup.enter="doFilter"
-                           placeholder="Search...">
-                    <div class="input-group-btn">
-                        <button class="btn btn-success" @click.prevent="doFilter">Go</button>
-                    </div>
-                </div>
-                <button class="btn btn-info" @click.prevent="resetFilter">Reset</button>
-            </div>
-        </form>
-    </div>
-</template>
 <script>
+    import Helpers from '../helpers';
     import Env from '../env';
 
     export default {
@@ -23,6 +8,10 @@
             return {
                 filterText: ''
             }
+        },
+        created: function () {
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-filter.html');
         },
         methods: {
             doFilter() {
@@ -35,3 +24,13 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+    #table-filter {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .reset-btn {
+        margin-left: 10px;
+    }
+</style>

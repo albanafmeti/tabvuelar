@@ -1,14 +1,5 @@
-<template>
-    <div id="table-per-page">
-        <div class="input-group">
-            <div class="input-group-addon">Show entries:</div>
-            <select v-model="itemsPerPage" class="form-control" @change.prevent="setPerPage(itemsPerPage)">
-                <option :value="value" v-for="value in options">{{ value }}</option>
-            </select>
-        </div>
-    </div>
-</template>
 <script>
+    import Helpers from '../helpers';
     import Env from '../env';
 
     export default {
@@ -31,6 +22,10 @@
             }
         },
         created: function () {
+
+            let templateDir = Helpers.getTemplateDir(this.$pluginOptions.ui);
+            this.$options.template = require('../templates/' + templateDir + '/table-per-page.html');
+
             this.itemsPerPage = this.perPage
         },
         methods: {
@@ -44,5 +39,7 @@
     #table-per-page {
         width: 200px;
         float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
     }
 </style>
