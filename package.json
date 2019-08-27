@@ -16,7 +16,7 @@
   "author": "Alban Afmeti <albanafmeti@gmail.com> (http://techalin.com)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17",
+    "axios": ">=0.18.1",
     "vue": "^2.5.7",
     "vue-events": "^3.1.0",
     "vue-spinner": "^1.0.3"
